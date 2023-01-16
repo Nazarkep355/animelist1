@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <div class="row g-3">
+      <label for="Title" class="visually-hidden">Title</label>
+      <input type="text" (keyup)="search()" [(ngModel)]="searchField" class="form-control col-auto"
+             style="width: 300px; height: 40px;margin-right: 5px;" id="Title"
+             placeholder="Title">
+      <div *ngIf="options!=null&&options.length>0"
+           style="position: absolute;background: white;
+           margin-top: 60px;width: 450px;
+           border-radius: 3px;border: solid black 1px">
+        <div style="margin-top: 1px" *ngFor="let title of options">
+          <div class="row" style="height: 120px">
+            <div class="col">
+              <img style="height: 120px" src="http://localhost:8080/images/{{title.poster}}">
+            </div>
+            <div class="col">
+              {{title.name}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mb-3 col-auto">Search</button>
+    </div>
+  </div>
+  <div *ngFor="let title of titles">
+    <img src="http://localhost:8080/images/{{title.poster}}">
+  </div>
+</div>
